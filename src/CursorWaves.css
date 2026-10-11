@@ -1,0 +1,46 @@
+
+.cursor-water-wave {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #168BCE;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+  animation: water-ripple 850ms ease-out forwards;
+  box-shadow: 0 0 8px rgba(22, 139, 206, 0.2);
+}
+
+.cursor-water-wave::before,
+.cursor-water-wave::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid rgba(22, 139, 206, 0.55);
+  border-radius: 50%;
+}
+
+.cursor-water-wave::after {
+  inset: -11px;
+  border-color: rgba(22, 139, 206, 0.25);
+}
+
+@keyframes water-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-water-wave {
+    animation-duration: 250ms;
+  }
+}
